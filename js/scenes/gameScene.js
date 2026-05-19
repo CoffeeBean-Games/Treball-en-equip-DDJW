@@ -1,9 +1,9 @@
 "use strict";
 
-class GameScene extends Phaser.Scene {
+class gameScene extends Phaser.Scene {
 
     constructor() {
-        super('GameScene');
+        super('gameScene');
         this.seleccionades = [];
         this.nErrades = 0;
         this.captches = [];
