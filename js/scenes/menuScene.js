@@ -81,7 +81,7 @@ class menuScene extends Phaser.Scene {
             this.botoJugar.setStyle({ fill: '#e94560' });
         });
         this.botoJugar.on('pointerup', () => {
-            this.scene.start('GameScene');
+            this.scene.start('gameScene');
         });
 
         // Hover botó instruccions
