@@ -128,8 +128,8 @@ class gameScene extends Phaser.Scene {
             fill: '#ffffff'
         }).setOrigin(0.5).setInteractive();
         boto.on('pointerup', () => {
-            this.scene.pause('GameScene');
-            this.scene.launch('PauseScene');
+            this.scene.pause('gameScene');
+            this.scene.launch('pauseScene');
         });
     }
 
