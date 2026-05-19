@@ -44,11 +44,6 @@ class pauseScene extends Phaser.Scene {
         this.configurarBotons();
     }
 
-    /**
-     * Assigna els esdeveniments de clic i hover als tres botons.
-     * Pre: els tres botons han d'existir com a propietats de l'escena.
-     * Post: cada botó respon al clic i al ratolí per sobre.
-     */
     configurarBotons() {
         this.configurarHover(this.botoReprendre);
         this.configurarHover(this.botoReiniciar);
@@ -72,11 +67,6 @@ class pauseScene extends Phaser.Scene {
         });
     }
 
-    /**
-     * Aplica l'efecte hover estàndard a un botó de text.
-     * Pre: boto és un objecte Text de Phaser amb setStyle disponible.
-     * Post: el botó canvia de color en passar el ratolí per sobre.
-     */
     configurarHover(boto) {
         boto.on('pointerover', () => {
             boto.setStyle({ fill: '#ffffff' });
