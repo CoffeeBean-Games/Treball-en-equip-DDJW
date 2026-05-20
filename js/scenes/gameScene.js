@@ -24,7 +24,7 @@ class gameScene extends Phaser.Scene {
 
     create() {
         const cx = this.cameras.main.width / 2;
-        this.add.text(cx, 40, 'Selecciona les parts alterades per IA', {
+        this.add.text(cx, 25, 'Selecciona les parts alterades per IA', {
             fontSize: '16px',
             fill: '#ffffff'
         }).setOrigin(0.5);
@@ -40,7 +40,7 @@ class gameScene extends Phaser.Scene {
     crearGraella() {
         const mida = 150;
         const separacio = 10;
-        const inicix = 130;
+        const inicix = (this.cameras.main.width - (3 * mida + 2 * separacio)) / 2 + mida / 2;
         const iniciy = 110;
         const graella = captchaData[0].graella;
         for (let fila = 0; fila < 3; fila++) {
