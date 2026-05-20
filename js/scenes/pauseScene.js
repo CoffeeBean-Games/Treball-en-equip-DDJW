@@ -55,7 +55,7 @@ class pauseScene extends Phaser.Scene {
         });
 
         this.botoReiniciar.on('pointerup', () => {
-            this.scene.stop('gameScene');
+            this.scene.stop('pauseScene');
             this.scene.restart('gameScene');
         });
 
