@@ -41,7 +41,7 @@ class gameScene extends Phaser.Scene {
         const mida = 150;
         const separacio = 10;
         const inicix = (this.cameras.main.width - (3 * mida + 2 * separacio)) / 2 + mida / 2;
-        const iniciy = 110;
+        const iniciy = 120;
         const graella = captchaData[0].graella;
         for (let fila = 0; fila < 3; fila++) {
             for (let col = 0; col < 3; col++) {
