@@ -9,6 +9,12 @@ class gameScene extends Phaser.Scene {
         this.captches = [];
     }
 
+    init() {
+        this.seleccionades = [];
+        this.nErrades = 0;
+        this.captches = [];
+    }
+
     preload() {
         const graella = captchaData[0].graella;
         for (let fila = 0; fila < 3; fila++) {
