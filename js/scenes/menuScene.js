@@ -1,12 +1,12 @@
 "use strict";
 
-class MenuScene extends Phaser.Scene {
+class menuScene extends Phaser.Scene {
 
     /**
      * Constructor de l'escena del menú principal.
      */
     constructor() {
-        super('MenuScene');
+        super('menuScene');
     }
 
     /**
@@ -81,7 +81,7 @@ class MenuScene extends Phaser.Scene {
             this.botoJugar.setStyle({ fill: '#e94560' });
         });
         this.botoJugar.on('pointerup', () => {
-            this.scene.start('GameScene');
+            this.scene.start('gameScene');
         });
 
         // Hover botó instruccions
