@@ -143,29 +143,29 @@ class gameScene extends Phaser.Scene {
      * Post: actualitza nErrades i mostra el resultat per pantalla.
      */
     verificar() {
-    this.verificada = true;
+        this.verificada = true;
 
-    let errors = 0;
-    this.captches.forEach(captcha => {
-        if (!captcha.seleccionada) return; // AFEGIT: ignora les no seleccionades
+        let errors = 0;
+        this.captches.forEach(captcha => {
+            if (captcha.seleccionada !== captcha.fake) {
+                errors++;
+                if (captcha.seleccionada) {
+                    //captcha.caixa.setStrokeStyle(3, 0xff0000);
+                }
+            } else if (captcha.fake && captcha.seleccionada) {
+                captcha.caixa.setStrokeStyle(3, 0x00ff00);
+            }
+        });
 
-        if (captcha.fake) {
-            captcha.caixa.setStrokeStyle(3, 0x00ff00); // seleccionada + fake = encert ✓
+        this.nErrades += errors;
+        this.textErrades.setText('Errades: ' + this.nErrades);
+
+        if (errors === 0) {
+            this.mostrarResultat('PERFECTE! Totes correctes!', '#00ff00');
         } else {
-            errors++;
-            captcha.caixa.setStrokeStyle(3, 0xff0000); // seleccionada + no fake = error ✗
+            this.mostrarResultat('Hi ha ' + errors + ' errors!', '#e94560');
         }
-    });
-
-    this.nErrades += errors;
-    this.textErrades.setText('Errades: ' + this.nErrades);
-
-    if (errors === 0) {
-        this.mostrarResultat('PERFECTE! Totes correctes!', '#00ff00');
-    } else {
-        this.mostrarResultat('Hi ha ' + errors + ' errors!', '#e94560');
     }
-	}
 
     /**
      * Mostra un missatge de resultat que desapareix sol.
