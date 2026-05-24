@@ -19,7 +19,7 @@ Aquest ha sigut un projecte que ens ha permès millorar molt la nostra comprensi
 **Manual d’usuari**
 
   COM ES JUGA?
-    1. Se't mostren 9 imatges
-    2. Selecciones les generades per IA
-    3. Prems VERIFICAR quan estiguis llest
-    4. Cada encert suma punts!
+  1. Se't mostren 9 imatges
+  2. Selecciones les generades per IA
+  3. Prems VERIFICAR quan estiguis llest
+  4. Cada encert suma punts!
