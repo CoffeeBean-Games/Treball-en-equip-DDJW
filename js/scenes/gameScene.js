@@ -151,13 +151,14 @@ class gameScene extends Phaser.Scene {
     	this.verificada = true;
         let errors = 0;
    		this.captches.forEach(captcha => {
-            if (!captcha.seleccionada) return; // ignora les no seleccionades
-            if (captcha.fake) {
-                captcha.caixa.setStrokeStyle(3, 0x00ff00); // ✓ encert
-            } else {
-                errors++;
-                captcha.caixa.setStrokeStyle(3, 0xff0000); // ✗ error
-            }
+        if (captcha.seleccionada && captcha.fake) {
+            captcha.caixa.setStrokeStyle(3, 0x00ff00);
+        } else if (captcha.seleccionada && !captcha.fake) {
+            errors++;
+            captcha.caixa.setStrokeStyle(3, 0xff0000);
+        } else if (!captcha.seleccionada && captcha.fake) {
+            errors++;
+        }
         });
         this.nErrades += errors;
         this.textErrades.setText('Errades: ' + this.nErrades);
