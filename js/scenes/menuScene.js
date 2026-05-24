@@ -124,8 +124,8 @@ class menuScene extends Phaser.Scene {
         const text = this.add.text(cx, cy - 80,
             'COM ES JUGA?\n\n' +
             '1. Se\'t mostren 9 imatges\n' +
-            '2. Selecciona les generades per IA\n' +
-            '3. Prem VERIFICAR quan estiguis llest\n' +
+            '2. Selecciones les generades per IA\n' +
+            '3. Prems VERIFICAR quan estiguis llest\n' +
             '4. Cada encert suma punts!\n\n' +
             '[clic per tancar]', {
             fontSize: '14px',
