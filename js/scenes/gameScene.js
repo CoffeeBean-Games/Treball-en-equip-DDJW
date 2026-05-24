@@ -143,15 +143,17 @@ class gameScene extends Phaser.Scene {
      * Post: actualitza nErrades i mostra el resultat per pantalla.
      */
     verificar() {
-        let errors = 0;
-        this.captches.forEach(captcha => {
-            if (captcha.seleccionada !== captcha.fake) {
-                errors++;
+    let errors = 0;
+    this.captches.forEach(captcha => {
+        if (captcha.seleccionada !== captcha.fake) {
+            errors++;
+            if (captcha.seleccionada) {
                 captcha.caixa.setStrokeStyle(3, 0xff0000);
-            } else if (captcha.fake && captcha.seleccionada) {
-                captcha.caixa.setStrokeStyle(3, 0x00ff00);
             }
-        });
+        } else if (captcha.fake && captcha.seleccionada) {
+            captcha.caixa.setStrokeStyle(3, 0x00ff00);
+        }
+    });
         this.nErrades += errors;
         this.textErrades.setText('Errades: ' + this.nErrades);
         if (errors === 0) {
