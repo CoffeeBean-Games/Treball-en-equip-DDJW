@@ -156,8 +156,6 @@ class gameScene extends Phaser.Scene {
         } else if (captcha.seleccionada && !captcha.fake) {
             errors++;
             captcha.caixa.setStrokeStyle(3, 0xff0000);
-        } else if (!captcha.seleccionada && captcha.fake) {
-            errors++;
         }
         });
         this.nErrades += errors;
