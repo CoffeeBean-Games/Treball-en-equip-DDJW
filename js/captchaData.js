@@ -2,7 +2,7 @@
 
 const captchaData = [
     {
-	carpeta: 'assets/captcha1/'
+	carpeta: 'assets/captcha1/',
         graella: [
             [
                 { variants: [ {img: '0_0_real.png', fake: false}, {img: '0_0_fake.png', fake: true} ] },
@@ -22,7 +22,7 @@ const captchaData = [
         ]
     },
     {
-	carpeta: 'assets/captcha2/'
+	carpeta: 'assets/captcha2/',
 	graella: [
             [
                 { variants: [ {img: '0_0_real.png', fake: false}, {img: '0_0_fake.png', fake: true} ] },
