@@ -8,7 +8,9 @@ Aquest joc consisteix en tres escenes principals, un menú principal, que és la
 
 **Descripció de les parts més rellevants de la implementació**
 
-
+La part principal d'aquest projecte és el gameScene.js, on en carregar es genera una graella de 3X3, i en cada quadre/posició d'aquesta, apareix una imatge que pot estar en dos estats, fake o true. Les imatges Fake són imatges amb modificacions més o menys evidents, i les imatges true, són les mateixes però sense cap mena de modificació.
+Per tant, un cop generades aquestes imatges, el jugador ha de seleccionar les que consideri que han sigut modificades (si no hi selecciona cap al joc l'indica que obligatòriament ha de seleccionar una, donat que mai hi seran totes true), un cop seleccionades, prem el botó de verificar, i aquests l'indicarà a través d'un missatge si ha seleccionat totes bé, o si hi ha cap error i quants n'hi ha (ja sigui que ha seleccionat una que no era fake o que no ha seleccionat una que ho era).
+Les graelles es marquen d'un contorn verd si s'ha seleccionat correctament o d'un color vermell si s'ha seleccionat una que no era.
 
 **Conclusions i problemes trobats**
 
@@ -16,3 +18,8 @@ Aquest ha sigut un projecte que ens ha permès millorar molt la nostra comprensi
 
 **Manual d’usuari**
 
+  COM ES JUGA?
+    1. Se't mostren 9 imatges
+    2. Selecciones les generades per IA
+    3. Prems VERIFICAR quan estiguis llest
+    4. Cada encert suma punts!
