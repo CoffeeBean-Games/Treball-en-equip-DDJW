@@ -16,7 +16,8 @@ class gameScene extends Phaser.Scene {
     }
 
     preload() {
-        const graella = captchaData[0].graella;
+        const captchaActual = captchaData[0];
+	const graella = captchaActual.graella;
         for (let fila = 0; fila < 3; fila++) {
             for (let col = 0; col < 3; col++) {
                 const variants = graella[fila][col].variants;
@@ -48,37 +49,36 @@ class gameScene extends Phaser.Scene {
         const separacio = 10;
         const inicix = (this.cameras.main.width - (3 * mida + 2 * separacio)) / 2 + mida / 2;
         const iniciy = 110;
-        const graella = captchaData[0].graella;
+	const captchaActual = captchaData[0];
+        const graella = captchaActual.graella;
         for (let fila = 0; fila < 3; fila++) {
             for (let col = 0; col < 3; col++) {
                 const x = inicix + col * (mida + separacio);
                 const y = iniciy + fila * (mida + separacio);
                 const variants = graella[fila][col].variants;
                 const variantTriada = variants[Phaser.Math.Between(0, 1)];
-                const caixa = this.add.rectangle(x, y, mida, mida, 0x16213e)
-                    .setStrokeStyle(2, 0x444466)
+                const imatge = this.add.image(x, y, variantTriada.img)
+                const marc = this.add.rectangle(x, y, mida, mida)
+		    .setDisplaySize(mida, mida)
                     .setInteractive();
-                const etiqueta = this.add.text(x, y, variantTriada.img, {
-                    fontSize: '10px',
-                    fill: '#ffffff',
-                    align: 'center',
-                    wordWrap: { width: mida - 10 }
-                }).setOrigin(0.5);
+                const marc = this.add.rectangle(x, y, mida, mida)
+                    .setStrokeStyle(2, 0x444466)
+                    .setFillStyle(0x000000, 0);
                 const index = fila * 3 + col;
                 this.captches.push({
-                    caixa,
-                    etiqueta,
+                    caixa: marc,
+		    imatge,
                     fake: variantTriada.fake,
                     seleccionada: false,
                     index
                 });
-                caixa.on('pointerup', () => this.marcarFakeNew(index));
-                caixa.on('pointerover', () => {
+                imatge.on('pointerup', () => this.marcarFakeNew(index));
+                imatge.on('pointerover', () => {
                     if (!this.captches[index].seleccionada) {
                         caixa.setStrokeStyle(2, 0xe94560);
                     }
                 });
-                caixa.on('pointerout', () => {
+                imatge.on('pointerout', () => {
                     if (!this.captches[index].seleccionada) {
                         caixa.setStrokeStyle(2, 0x444466);
                     }
@@ -96,11 +96,11 @@ class gameScene extends Phaser.Scene {
         const captcha = this.captches[index];
         captcha.seleccionada = !captcha.seleccionada;
         if (captcha.seleccionada) {
-            captcha.caixa.setFillStyle(0x3d1a78);
             captcha.caixa.setStrokeStyle(3, 0xe94560);
+            captcha.imatge.setTint(0x9966ff);
         } else {
-            captcha.caixa.setFillStyle(0x16213e);
             captcha.caixa.setStrokeStyle(2, 0x444466);
+            captcha.imatge.clearTint();
         }
     }
 
