@@ -58,7 +58,7 @@ class gameScene extends Phaser.Scene {
                 const variants = graella[fila][col].variants;
                 const variantTriada = variants[Phaser.Math.Between(0, 1)];
                 const imatge = this.add.image(x, y, variantTriada.img)
-                const marc = this.add.rectangle(x, y, mida, mida)
+                const imatge = this.add.image(x, y, variantTriada.img)
 		    .setDisplaySize(mida, mida)
                     .setInteractive();
                 const marc = this.add.rectangle(x, y, mida, mida)
