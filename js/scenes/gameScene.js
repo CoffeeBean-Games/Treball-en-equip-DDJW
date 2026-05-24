@@ -74,12 +74,12 @@ class gameScene extends Phaser.Scene {
                 imatge.on('pointerup', () => this.marcarFakeNew(index));
                 imatge.on('pointerover', () => {
                     if (!this.captches[index].seleccionada) {
-                        caixa.setStrokeStyle(2, 0xe94560);
+                        marc.setStrokeStyle(2, 0xe94560);
                     }
                 });
                 imatge.on('pointerout', () => {
                     if (!this.captches[index].seleccionada) {
-                        caixa.setStrokeStyle(2, 0x444466);
+                        marc.setStrokeStyle(2, 0x444466);
                     }
                 });
             }
