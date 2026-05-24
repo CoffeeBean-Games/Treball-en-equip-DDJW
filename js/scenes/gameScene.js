@@ -150,13 +150,15 @@ class gameScene extends Phaser.Scene {
     	}
     	this.verificada = true;
         let errors = 0;
-        this.captches.forEach(captcha => {
-            if (captcha.seleccionada !== captcha.fake) {
-                errors++;
-                captcha.caixa.setStrokeStyle(3, 0xff0000);
-            } else if (captcha.fake && captcha.seleccionada) {
-                captcha.caixa.setStrokeStyle(3, 0x00ff00);
-            }
+   		this.captches.forEach(captcha => {
+        if (captcha.seleccionada && captcha.fake) {
+            captcha.caixa.setStrokeStyle(3, 0x00ff00);
+        } else if (captcha.seleccionada && !captcha.fake) {
+            errors++;
+            captcha.caixa.setStrokeStyle(3, 0xff0000);
+        } else if (!captcha.seleccionada && captcha.fake) {
+            errors++;
+        }
         });
         this.nErrades += errors;
         this.textErrades.setText('Errades: ' + this.nErrades);
